@@ -1,0 +1,19 @@
+[package]
+name = "extract_apple_books"
+version = "0.1.0"
+edition = "2021"
+description = "Export audiobooks from Apple Books to Audiobookshelf-compatible format"
+license = "MIT"
+
+[dependencies]
+clap = { version = "4.4", features = ["derive"] }
+plist = "1.6"
+serde = { version = "1.0", features = ["derive"] }
+anyhow = "1.0"
+thiserror = "1.0"
+indicatif = "0.17"
+dirs = "5.0"
+
+[dev-dependencies]
+tempfile = "3.10"
+
