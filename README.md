@@ -1,4 +1,4 @@
-# Extract Apple Books
+# Extract Apple Audiobooks
 
 Export audiobooks from Apple Books to [Audiobookshelf](https://www.audiobookshelf.org/)-compatible format.
 
