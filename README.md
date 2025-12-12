@@ -6,21 +6,17 @@ Apple Books stores audiobooks in a cryptic folder structure using SHA1 hashes. T
 
 ## Features
 
-- 📚 Exports all audiobooks from Apple Books library
-- 🏷️ Preserves metadata (author, title, narrator)
-- 📁 Creates Audiobookshelf-compatible directory structure
-- 🔗 **Symlink support** - save disk space by linking instead of copying
-- 🔍 **Dry-run with diff** - preview what will be copied before running
-- ⏭️ Skips files that already exist at destination
-- 📍 Works with external drives and custom library locations
+- Exports all audiobooks from Apple Books library
+- Preserves metadata (author, title, narrator)
+- Creates Audiobookshelf-compatible directory structure
+- **Symlink support** - save disk space by linking instead of copying
+- **Dry-run with diff** - preview what will be copied before running
+- ⏭ Skips files that already exist at destination
+- Works with external drives and custom library locations
 
 ## Installation
 
 ```bash
-# Clone the repository
-git clone https://github.com/yourusername/extract_apple_books.git
-cd extract_apple_books
-
 # Run directly with cargo
 cargo run -- --help
 
@@ -143,38 +139,7 @@ Author Name/
 
 ## Importing into Audiobookshelf
 
-### 1. Set Up Your Library
-
-1. In Audiobookshelf, go to **Settings → Libraries**
-2. Click **Add Library**
-3. Set the folder path to your export destination (e.g., `/path/to/audiobooks`)
-4. Choose **Media Type: Audiobooks**
-5. Set **Folder Structure** to **Author / Book**
-
-### 2. If Using Symlinks with Docker
-
-If you're running Audiobookshelf in Docker and using symlinks, you need to mount both the destination AND the original Apple Books location:
-
-```yaml
-# docker-compose.yml
-services:
-  audiobookshelf:
-    image: ghcr.io/advplyr/audiobookshelf:latest
-    ports:
-      - 13378:80
-    volumes:
-      # Your exported audiobooks (with symlinks)
-      - /path/to/audiobooks:/audiobooks
-      # The original Apple Books location (so symlinks resolve)
-      - /Users/charlie/Library/Containers/com.apple.BKAgentService/Data/Documents/iBooks/Books/Audiobooks:/source-audiobooks:ro
-      # Config and metadata
-      - /path/to/config:/config
-      - /path/to/metadata:/metadata
-```
-
-### 3. Scan Your Library
-
-After adding the library, Audiobookshelf will automatically scan and import your audiobooks. You can also manually trigger a scan from **Settings → Libraries → [Your Library] → Scan**.
+Simply copy the directory structure to your ABS server, or export directly there, and add/scan a library.
 
 ## Command Line Options
 
